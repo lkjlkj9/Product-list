@@ -4,7 +4,7 @@
 }
 
 :root {
---size: 250px;
+
 --down: 32px;
 --preset_1: 40px;
 --preset_2: 24px;
@@ -25,12 +25,14 @@ body {
     display: flex;
     font-family: "Red Hat Text";
     background-color: var(--rose50);
-    padding: 88px 40px;
+    padding: 88px;
     gap: 32px;
+    width: 84.4%;
 }
 
 main {
     margin: auto;
+    width: 100%;
 }
 
 h1 {
@@ -41,20 +43,30 @@ margin-bottom: var(--down);
 
 .grid {
 display: grid;
-grid-template-columns: 250px 250px 250px;
+grid-template-columns: repeat(3, 250px);
 gap: 24px;
 
 }
-.dish-picture{
-    width: var(--size);
+
+.img_and_button{
+    position: relative;
 }
+
+
+
+.dish-picture{
+    width: 100%;
+
+}
+
 
 .grid__button {
     width: 160px;
     height: 44px;
-    position: relative;
-    top: -30px;
-    left: 45px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translate(-50%, 0);
     text-align: center;
     line-height: 21px;
     border-radius: 30px;
@@ -75,7 +87,7 @@ gap: 24px;
 .dish {
 font-size: var(--preset_4);
 color: var(--rose500);
-margin-top: -20px;
+
 
 }
 
@@ -126,4 +138,73 @@ font-size: var(--preset_4);
 font-weight: var(--bold);
 color: var(--rose500, rgba(135, 99, 90, 1));
 margin-bottom: 16px;
+}
+
+
+@media (max-width: 1260px) {
+    body {
+        flex-direction: column;
+        width: 89.5%;
+    }
+
+    main {
+        width: 100%;
+        margin: auto;
+    }
+
+    .grid {
+    
+        grid-template-columns: repeat(3, minmax(213px, 1fr));
+
+    }
+    
+    .cart {
+        width: 94%;
+        margin: 0;
+    }
+
+
+}
+
+
+@media (max-width: 860px) {
+    body {
+        width: 87.5%;
+        padding: 5%;
+        
+    }
+
+    .grid {
+        /* width: 100%; */
+        grid-template-columns: repeat(1, minmax(327px, 1fr));
+        
+    }
+
+   .dish .dishname .price {
+        font-size: var(--preset_2);
+    }
+    .cart {
+        width: 93%;
+        height: 300px;
+        margin: auto;
+    }
+    
+    .img_and_button {
+        max-width:100%;
+        aspect-ratio: 3/2; 
+     
+        
+        
+    }
+ 
+    .dish-picture {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        object-position: center;
+        border-radius: 12px;  
+    }
+
+    
+
 }
